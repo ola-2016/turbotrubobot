@@ -205,7 +205,7 @@ def main() -> None:
     # Проверка структуры директорий
     os.makedirs(os.path.join(DATA_DIR, "correct"), exist_ok=True)
     os.makedirs(os.path.join(DATA_DIR, "wrong"), exist_ok=True)
-    application = Application.builder().token("YOUR_TOKEN").build()
+    application = Application.builder().token(f"{YOUR_TOKEN}").build()
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("retrain", force_retrain))
     application.add_handler(MessageHandler(filters.PHOTO, handle_image))
