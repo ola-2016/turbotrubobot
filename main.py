@@ -25,7 +25,8 @@ NORMALIZATION = 1.0 / 255
 THRESHOLD = 0.5
 DATA_DIR = "training_data"
 MODEL_PATH = "pipe_damaged_model.h5"
-ADMIN_USER_ID = 603819528
+ADMIN_USER_ID = 1235678
+YOUR_TOKEN = 123456
 
 # Загрузка модели
 model = tf.keras.models.load_model(MODEL_PATH)
@@ -204,7 +205,7 @@ def main() -> None:
     # Проверка структуры директорий
     os.makedirs(os.path.join(DATA_DIR, "correct"), exist_ok=True)
     os.makedirs(os.path.join(DATA_DIR, "wrong"), exist_ok=True)
-    application = Application.builder().token("8014007992:AAEFCAq2rFGijJ3OnfSwA0kBFBHIORHiKSc").build()
+    application = Application.builder().token("YOUR_TOKEN").build()
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("retrain", force_retrain))
     application.add_handler(MessageHandler(filters.PHOTO, handle_image))
